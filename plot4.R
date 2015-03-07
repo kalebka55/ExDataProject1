@@ -2,7 +2,7 @@ library(data.table)
 data<-fread("household_power_consumption.txt")
 date<-strptime(data$Date, format="%d/%m/%Y")
 DT<-data[(date>="2007-02-01") & (date<="2007-02-02"), ]
-DT$datetime <- as.vector(strptime(paste(DT$Date, DT$Time, sep=' '), format="%d/%m/%Y %H:%M:%S"))
+dateTime <- strptime(paste(DT$Date, DT$Time, sep=' '), format="%d/%m/%Y %H:%M:%S")
 png(file="plot4.png",width=480,height=480)
 par(mfrow=c(2,2))
 with(DT,{
